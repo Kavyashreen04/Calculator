@@ -11,28 +11,26 @@
             display: flex;
             gap: 5px;
             flex-direction: column;
-            
         }
 
-        button{
+        button {
             width: 90px;
             height: 50px;
             border: solid 5px black;
             border-radius: 6px;
         }
 
-        body{
+        body {
             text-align: center;
             margin-top: 160px;
         }
 
-        input{
+        input {
             width: 365px;
             height: 85px;
             margin: 5px 0px;
             border: solid 5px rgb(102, 93, 93);
         }
-
     </style>
 </head>
 
@@ -77,25 +75,20 @@
             <button id="equal">=</button>
         </div>
     </div>
-
-
-
     <script>
+        let text = document.getElementById("text");
+        let btnac = document.getElementById("btnac");
+        let rub = document.getElementById("rub");
+        let plusmi = document.getElementById("plusmi");
+        let divide = document.getElementById("divide");
+        let multiply = document.getElementById("multiply");
+        let minus = document.getElementById("minus");
+        let plus = document.getElementById("plus");
+        let equal = document.getElementById("equal");
+        let btndot = document.getElementById("btndot");
+        let percent = document.getElementById("btn%");
 
-
-        const text = document.getElementById("text");
-        const btnac = document.getElementById("btnac");
-        const rub = document.getElementById("rub");
-        const plusmi = document.getElementById("plusmi");
-        const divide = document.getElementById("divide");
-        const multiply = document.getElementById("multiply");
-        const minus = document.getElementById("minus");
-        const plus = document.getElementById("plus");
-        const equal = document.getElementById("equal");
-        const btndot = document.getElementById("btndot");
-        const percent = document.getElementById("btn%");
-
-        const buttons = [
+        let buttons = [
             "btn0", "btn1", "btn2", "btn3", "btn4",
             "btn5", "btn6", "btn7", "btn8", "btn9"
         ];
@@ -107,17 +100,17 @@
             });
         });
 
-        // Clear screen
+
         btnac.addEventListener("click", () => {
             text.value = "";
         });
 
-        // Backspace
+
         rub.addEventListener("click", () => {
             text.value = text.value.slice(0, -1);
         });
 
-        // Toggle +/-
+
         plusmi.addEventListener("click", () => {
             if (text.value) {
                 if (text.value.startsWith("-")) {
@@ -128,7 +121,7 @@
             }
         });
 
-        // Operator buttons
+
         divide.addEventListener("click", () => {
             text.value += "/";
         });
@@ -145,17 +138,17 @@
             text.value += "+";
         });
 
-        // Dot (decimal point)
+
         btndot.addEventListener("click", () => {
             text.value += ".";
         });
 
-        // Percentage (converts to /100)
+
         percent.addEventListener("click", () => {
             text.value += "/100";
         });
 
-        // Equals (=)
+
         equal.addEventListener("click", () => {
             try {
                 text.value = eval(text.value);
@@ -164,10 +157,6 @@
             }
         });
     </script>
-
-
-
-
 </body>
 
 </html>
