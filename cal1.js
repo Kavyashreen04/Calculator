@@ -1,43 +1,36 @@
-// Get references to elements
-const body = document.body; // Use document.body for the <body> element
+
+const body = document.body; 
 const container = document.getElementById('container');
 const display = document.getElementById('display');
-const buttonRows = document.querySelectorAll('.button-row'); // Select all div with class "button-row"
+const buttonRows = document.querySelectorAll('.button-row'); 
 const allButtons = document.querySelectorAll('button');
 
-// This variable will hold the mathematical expression the user is building
+
 let currentExpression = "";
 
-/**
- * Applies all initial CSS styles to the elements using JavaScript.
- * This function is called once when the script loads.
- */
+
 function applyInitialStyles() {
-    // --- Body Styles ---
+   
     body.style.fontFamily = 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif';
     body.style.display = 'flex';
     body.style.justifyContent = 'center';
     body.style.alignItems = 'center';
     body.style.minHeight = '100vh';
-    body.style.backgroundColor = '#f0f2f5'; // Light grey background
+    body.style.backgroundColor = '#f0f2f5'; 
     body.style.margin = '0';
     body.style.overflow = 'hidden';
 
-    // --- Container Styles ---
-    container.style.backgroundColor = '#282c34'; // Dark charcoal
+   
+    container.style.backgroundColor = '#282c34'; 
     container.style.borderRadius = '15px';
-    container.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4)'; // Deeper shadow
+    container.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4)';
     container.style.padding = '25px';
-    container.style.width = '320px'; // Slightly wider for better button spacing
+    container.style.width = '320px'; 
     container.style.display = 'flex';
     container.style.flexDirection = 'column';
-    container.style.gap = '15px'; // Space between rows
+    container.style.gap = '15px'; 
 
-    // Note: CSS animations like fadeIn are harder to do purely in JS without libraries,
-    // so for this specific animation, we'll omit it or simulate it with JS `setTimeout`
-    // for simplicity. For a true fade-in, a CSS class is far more efficient.
-
-    // --- Display Input Field Styles ---
+   
     display.style.width = '100%';
     display.style.height = '70px';
     display.style.backgroundColor = '#3a414c';
@@ -51,7 +44,7 @@ function applyInitialStyles() {
     display.style.marginBottom = '10px';
     display.style.outline = 'none';
 
-    // --- Button Row Styles (the divs holding buttons) ---
+    
     buttonRows.forEach(row => {
         row.style.display = 'flex';
         row.style.justifyContent = 'space-between';
