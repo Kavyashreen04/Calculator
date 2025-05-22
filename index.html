@@ -1,47 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  
-</head>
-<body id="body">
-    <div id="container">
-    
-        <input type="text" id="display" readonly />
 
-        <div>
-            <button id="one">1</button>
-            <button id="two">2</button>
-            <button id="three">3</button>
-            <button id="plus">+</button>
+    <style>
+        .calc {
+            display: flex;
+            gap: 5px;
+            flex-direction: column;
+            
+        }
+
+        button{
+            width: 90px;
+            height: 50px;
+            border: solid 5px black;
+            border-radius: 6px;
+        }
+
+        body{
+            text-align: center;
+            margin-top: 160px;
+        }
+
+        input{
+            width: 365px;
+            height: 85px;
+            margin: 5px 0px;
+            border: solid 5px rgb(102, 93, 93);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="area">
+        <input type="text" id="text">
+    </div>
+
+
+    <div class="calc">
+
+        <div class="row1">
+            <button id="btnac"> AC </button>
+            <button id="rub">X</button>
+            <button id="plusmi">+/-</button>
+            <button id="divide">/</button>
         </div>
-        <div>
-            <button id="four">4</button>
-            <button id="five">5</button>
-            <button id="six">6</button>
+
+        <div class="row2">
+            <button id="btn7">7</button>
+            <button id="btn8">8</button>
+            <button id="btn9">9</button>
+            <button id="multiply">X</button>
+        </div>
+        <div class="row3">
+            <button id="btn4">4</button>
+            <button id="btn5">5</button>
+            <button id="btn6">6</button>
             <button id="minus">-</button>
         </div>
-        <div>
-            <button id="seven">7</button>
-            <button id="eig">8</button>
-            <button id="nine">9</button>
-            <button id="mul">*</button>
+        <div class="row4">
+            <button id="btn1">1</button>
+            <button id="btn2">2</button>
+            <button id="btn3">3</button>
+            <button id="plus">+</button>
         </div>
-        <div>
-            <button id="zero">0</button>
-            <button id="mod">%</button>
-            <button id="equals">=</button>
-            <button id="div">/</button>
+        <div class="row5">
+            <button id="btn%">%</button>
+            <button id="btn0">0</button>
+            <button id="btndot">.</button>
+            <button id="equal">=</button>
         </div>
-        <div>
-            <button id="clear">Clear</button> 
-        </div>
-</div>
-</body>
-<script src="cal1.js"></script>
-
     </div>
+
+
+
+    <script>
+
+
+        const text = document.getElementById("text");
+        const btnac = document.getElementById("btnac");
+        const rub = document.getElementById("rub");
+        const plusmi = document.getElementById("plusmi");
+        const divide = document.getElementById("divide");
+        const multiply = document.getElementById("multiply");
+        const minus = document.getElementById("minus");
+        const plus = document.getElementById("plus");
+        const equal = document.getElementById("equal");
+        const btndot = document.getElementById("btndot");
+        const percent = document.getElementById("btn%");
+
+        const buttons = [
+            "btn0", "btn1", "btn2", "btn3", "btn4",
+            "btn5", "btn6", "btn7", "btn8", "btn9"
+        ];
+
+
+        buttons.forEach(id => {
+            document.getElementById(id).addEventListener("click", () => {
+                text.value += document.getElementById(id).innerText;
+            });
+        });
+
+        // Clear screen
+        btnac.addEventListener("click", () => {
+            text.value = "";
+        });
+
+        // Backspace
+        rub.addEventListener("click", () => {
+            text.value = text.value.slice(0, -1);
+        });
+
+        // Toggle +/-
+        plusmi.addEventListener("click", () => {
+            if (text.value) {
+                if (text.value.startsWith("-")) {
+                    text.value = text.value.slice(1);
+                } else {
+                    text.value = "-" + text.value;
+                }
+            }
+        });
+
+        // Operator buttons
+        divide.addEventListener("click", () => {
+            text.value += "/";
+        });
+
+        multiply.addEventListener("click", () => {
+            text.value += "*";
+        });
+
+        minus.addEventListener("click", () => {
+            text.value += "-";
+        });
+
+        plus.addEventListener("click", () => {
+            text.value += "+";
+        });
+
+        // Dot (decimal point)
+        btndot.addEventListener("click", () => {
+            text.value += ".";
+        });
+
+        // Percentage (converts to /100)
+        percent.addEventListener("click", () => {
+            text.value += "/100";
+        });
+
+        // Equals (=)
+        equal.addEventListener("click", () => {
+            try {
+                text.value = eval(text.value);
+            } catch (e) {
+                text.value = "Error";
+            }
+        });
+    </script>
+
+
+
+
+</body>
 
 </html>
